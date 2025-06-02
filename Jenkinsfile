@@ -20,7 +20,7 @@ pipeline {
                     credentialsId: 'MyAWS',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]){
-                        sh(script: 'aws ec2 cp /var/lib/jenkins/workspace/JenkinsPipeline/index.html /home/ec2-user/test/')
+                        sh(script: 'aws cp /var/lib/jenkins/workspace/JenkinsPipeline/index.html /home/ec2-user/test/')
                     }
                 }
         }
