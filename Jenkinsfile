@@ -51,7 +51,6 @@ pipeline {
                         sh(script: 'aws s3 cp /var/lib/jenkins/workspace/JenkinsPipeline/index.html s3://prod-env-jenkins')
                 }
             }
-            }
-        }
+         }
     }
 }
