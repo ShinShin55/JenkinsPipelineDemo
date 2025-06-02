@@ -15,6 +15,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'MyAWS',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]){
+                        sh(script: 'aws ec2 sudo cp /var/lib/jenkins/workspace/JenkinsPipeline/index.html /home/ec2-user/test/')
             }
         }
         stage('Test') {
